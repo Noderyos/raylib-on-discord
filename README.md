@@ -1,6 +1,5 @@
-# Discord Activity: Getting Started Guide
+# Raylib on Discord Activities
 
-This template is used in the [Building An Activity](https://discord.com/developers/docs/activities/building-an-activity) tutorial in the Discord Developer Docs.
+This project is based on original repo forked + raylib minishell.html modified
 
-Read more about building Discord Activities with the Embedded App SDK at [https://discord.com/developers/docs/activities/overview](https://discord.com/developers/docs/activities/overview).
-
+Only compatible with Linux at current time, you need to compile RayLib for web applications according to official documentation

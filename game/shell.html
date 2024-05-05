@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="EN-us">
+<head>
+    <meta charset="utf-8">
+    <title>raylib web game</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            margin: 0;
+        }
+        canvas.emscripten {
+            border: 0 none;
+            background-color: black;
+        }
+    </style>
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/gh/eligrey/FileSaver.js/dist/FileSaver.min.js"> </script>
+    <script type="module" src="/main.js"></script> <!-- Discord SDK js file -->
+    <script type='text/javascript'>
+        function saveFileFromMEMFSToDisk(memoryFSname, localFSname)
+        {
+            var isSafari = false;
+            var data = FS.readFile(memoryFSname);
+            var blob;
+            if (isSafari) blob = new Blob([data.buffer], { type: "application/octet-stream" });
+            else blob = new Blob([data.buffer], { type: "application/octet-binary" });
+            saveAs(blob, localFSname);
+        }
+    </script>
+</head>
+<body>
+<canvas class=emscripten id=canvas oncontextmenu=event.preventDefault() tabindex=-1></canvas>
+<script>
+    var Module = {
+        canvas: (function() {
+            var canvas = document.getElementById('canvas');
+            return canvas;
+        })()
+    };
+</script>
+{{{ SCRIPT }}} <!-- game js file -->
+</body>
+</html>
